@@ -20,7 +20,6 @@ chrome_options.add_argument("--single-process")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-driver.implicitly_wait(10)
 
 driver.get(url_mainpage)
 
