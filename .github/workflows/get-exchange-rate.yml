@@ -5,7 +5,9 @@ name: get-exchange-rate
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
+  push: 
+      branches: [main]
 
 jobs:
   build:
