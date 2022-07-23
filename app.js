@@ -21,7 +21,7 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", async (message) => {
-  if (message.content === "!이번 달 요금") {
+  if (message.content.replace(/ /g, "") === "!이번달요금") {
     PythonShell.run("_main_.py", option, (err, data) => {
       if (err) throw err;
       message.reply(`이번 달 사용 금액은 ${calculate(data[0])}원 입니다.`);
