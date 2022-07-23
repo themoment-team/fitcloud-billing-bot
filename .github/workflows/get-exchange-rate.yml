@@ -1,0 +1,36 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: get-exchange-rate
+
+on:
+  schedule:
+    - cron: '0 15 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run exchangeRate.py
+      run: |
+        python scripts/exchangeRate.py
+    - name: Commits
+      run: |
+        git config --local user.email "khr5k0228@gmail.com"
+        git config --local user.name "hyeongrok7874"
+        git add exchangeRate.json
+        git commit -m "Auto update exchageRate.json"
+    - name: Push
+      run: |
+        git push
