@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits } = require("discord.js");
-const { PythonShell } = require("python-shell");
 const { KRW } = require("./exchangeRate.json");
+const { FEE } = require("./nowFee.json");
 require("dotenv").config();
 
 const client = new Client({
@@ -12,25 +12,18 @@ const client = new Client({
   ],
 });
 
-const option = {
-  scriptPath: "./scripts",
-};
-
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on("messageCreate", async (message) => {
   if (message.content.replace(/ /g, "") === "!이번달요금") {
-    PythonShell.run("_main_.py", option, (err, data) => {
-      if (err) throw err;
-      message.reply(`이번 달 사용 금액은 ${calculate(data[0])}원 입니다.`);
-    });
+    message.reply(`이번 달 사용 금액은 ${calculate()}원 입니다.`);
   }
 });
 
-const calculate = (dollar) => {
-  return Math.floor(dollar.split("$")[1] * KRW).toLocaleString("ko-KR");
+const calculate = () => {
+  return Math.floor(FEE * KRW).toLocaleString("ko-KR");
 };
 
 client.login(process.env.DISCORD_BOT_TOKEN);
