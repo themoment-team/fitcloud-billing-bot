@@ -5,14 +5,18 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 import json
+import sys
 
 file_path = './nowFee.json'
 
 # load .env
 load_dotenv()
 
-id = os.environ.get('ID')
-password = os.environ.get('PASSWORD')
+# id = os.environ.get('ID')
+# password = os.environ.get('PASSWORD')
+
+id = sys.argv[1]
+password = sys.argv[2]
 
 url_mainpage = "https://aws.fitcloud.co.kr/dashboard"
 
