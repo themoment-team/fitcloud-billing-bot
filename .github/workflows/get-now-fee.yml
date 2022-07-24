@@ -30,7 +30,9 @@ jobs:
           git config --local user.name "hyeongrok7874"
           git add nowFee.json
           git commit -m "Auto update nowFee.json"
-      - name: Pull & Push
+      - name: Pull
         run: |
           git pull
+      - name: Push
+        run: |
           git push
