@@ -6,9 +6,6 @@ name: get-exchange-rate
 on:
   schedule:
     - cron: "0 15 * * *"
-  push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -33,7 +30,6 @@ jobs:
           git config --local user.name "hyeongrok7874"
           git add exchangeRate.json
           git commit -m "Auto update exchageRate.json"
-      - name: Pull & Push
+      - name: Push
         run: |
-          git pull
           git push
