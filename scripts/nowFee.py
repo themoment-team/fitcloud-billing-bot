@@ -4,6 +4,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
+import json
+
+file_path = './nowFee.json'
 
 # load .env
 load_dotenv()
@@ -31,4 +34,7 @@ sleep(5)
 
 nowMonthCost = driver.find_element(by='id', value='nowMonthCost')
 
-print(nowMonthCost.text)
+fee = { "FEE": float(nowMonthCost.text.split('$')[1]) }
+
+with open(file_path, 'w') as outfile:
+    json.dump(fee, outfile, indent=2)
