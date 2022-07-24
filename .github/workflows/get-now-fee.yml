@@ -32,7 +32,7 @@ jobs:
           git commit -m "Auto update nowFee.json"
       - name: Pull
         run: |
-          git pull
+          git pull origin main
       - name: Push
         run: |
           git push
