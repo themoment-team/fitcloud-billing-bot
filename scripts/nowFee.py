@@ -38,7 +38,7 @@ sleep(5)
 
 nowMonthCost = driver.find_element(by='id', value='nowMonthCost')
 
-fee = { "FEE": float(nowMonthCost.text.split('$')[1]) }
+fee = { "FEE": float(nowMonthCost.text.split('$')[1].replace(',','')) }
 
 with open(file_path, 'w') as outfile:
     json.dump(fee, outfile, indent=2)
