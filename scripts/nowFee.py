@@ -18,7 +18,7 @@ load_dotenv()
 id = sys.argv[1]
 password = sys.argv[2]
 
-url_mainpage = "https://aws.fitcloud.co.kr/dashboard"
+URL = "https://aws.fitcloud.co.kr/billing/cost/cost-detail"
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
@@ -28,17 +28,21 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-driver.get(url_mainpage)
+driver.get(URL)
+
+sleep(3)
 
 driver.find_element(by='id', value='loginUserId').send_keys(id)
 driver.find_element(by='id', value='loginPassword').send_keys(password)
 driver.find_element(by='id', value='kt_login_signin_submit').click()
 
-sleep(5)
+sleep(3)
 
-nowMonthCost = driver.find_element(by='id', value='nowMonthCost')
+nowMonthCost = driver.find_element(by='id', value='costTotalResult_monthly').find_element(by='tag name', value='span').text;
 
-fee = { "FEE": float(nowMonthCost.text.split('$')[1].replace(',','')) }
+print(nowMonthCost)
+
+fee = { "FEE": float(nowMonthCost.split('$')[1].replace(',','')) }
 
 with open(file_path, 'w') as outfile:
     json.dump(fee, outfile, indent=2)
