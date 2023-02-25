@@ -30,13 +30,13 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 
 driver.get(URL)
 
-sleep(3)
+sleep(10)
 
 driver.find_element(by='id', value='loginUserId').send_keys(id)
 driver.find_element(by='id', value='loginPassword').send_keys(password)
 driver.find_element(by='id', value='kt_login_signin_submit').click()
 
-sleep(3)
+sleep(10)
 
 nowMonthCost = driver.find_element(by='id', value='costTotalResult_monthly').find_element(by='tag name', value='span').text;
 
