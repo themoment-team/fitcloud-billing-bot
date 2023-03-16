@@ -7,3 +7,4 @@ Hello, GSM aws 계정의 billing을 간편하게 보실 수 있습니다
 - ID : fitcloud id
 - PASSWORD : fitcloud password
 - DISCORD_BOT_TOKEN : discord bot token
+- DISCORD_CHANNEL_ID : The ID of the channel to send the message to.
