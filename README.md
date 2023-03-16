@@ -2,6 +2,18 @@
 
 Hello, GSM aws 계정의 billing을 간편하게 보실 수 있습니다
 
+## Run
+
+```bash
+$ node app.js
+```
+
+실행 시, 채널에 현재 요금을 보고한 뒤 종료됩니다.
+
+## 사용 요령
+
+crontab으로 스케줄링 하여 일정 시간마다 요금을 보고하도록 할 수 있습니다.
+
 ## .env 파일 구성
 
 - ID : fitcloud id
