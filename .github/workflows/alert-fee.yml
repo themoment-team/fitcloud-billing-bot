@@ -1,0 +1,29 @@
+name: alert-fee
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  alert-fee:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: |
+          npm install -g yarn
+          ls
+          cd infra-bot
+          yarn install
+
+      - name: alert-fee
+        run: |
+          node app.js
