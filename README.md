@@ -14,6 +14,8 @@ $ node app.js
 
 crontab으로 스케줄링 하여 일정 시간마다 요금을 보고하도록 할 수 있습니다.
 
+- github action을 활용하여 매일 대한민국 표준시 09:00에 실행됩니다.
+
 ## .env 파일 구성
 
 - ID : fitcloud id
