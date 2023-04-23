@@ -24,4 +24,4 @@ jobs:
 
       - name: alert-fee
         run: |
-          node app.js
+          DISCORD_BOT_TOKEN=${{secrets.DISCORD_BOT_TOKEN}} DISCORD_CHANNEL_ID=${{secrets.DISCORD_CHANNEL_ID}} node app.js
