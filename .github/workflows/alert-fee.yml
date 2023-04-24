@@ -2,7 +2,7 @@ name: alert-fee
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 23 * * *"
 
 jobs:
   alert-fee:
