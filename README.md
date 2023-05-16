@@ -22,3 +22,4 @@ crontab으로 스케줄링 하여 일정 시간마다 요금을 보고하도록 
 - PASSWORD : fitcloud password
 - DISCORD_BOT_TOKEN : discord bot token
 - DISCORD_CHANNEL_ID : The ID of the channel to send the message to.
+- KOREA_EXIM_API_KEY : 한국수출입은행 API KEY
