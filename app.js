@@ -3,7 +3,18 @@ const { FEE } = require("./nowFee.json");
 const https = require("https");
 require("dotenv").config();
 
-const getExchangeRateURL = `https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=${process.env.KOREA_EXIM_API_KEY}&data=AP01`;
+const dateFormatting = (date) => {
+  return date < 10 ? `0${date}` : date;
+};
+
+const date = new Date();
+const year = date.getFullYear();
+const month = dateFormatting(date.getMonth() + 1);
+const day = dateFormatting(date.getDate());
+
+const yesterday = `${year}${month}${day - 1}`;
+
+const getExchangeRateURL = `https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=${process.env.KOREA_EXIM_API_KEY}&searchdate=${yesterday}&data=AP01`;
 
 const client = new Client({
   intents: [
