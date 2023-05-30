@@ -23,4 +23,4 @@ jobs:
 
       - name: alert-fee
         run: |
-          DISCORD_BOT_TOKEN=${{secrets.DISCORD_BOT_TOKEN}} DISCORD_CHANNEL_ID=${{secrets.DISCORD_CHANNEL_ID}} KOREA_EXIM_API_KEY=${{secrets.KOREA_EXIM_API_KEY}} node app.js
+          DISCORD_BOT_TOKEN=${{secrets.DISCORD_BOT_TOKEN}} DISCORD_CHANNEL_ID=${{secrets.DISCORD_CHANNEL_ID}} node app.js
