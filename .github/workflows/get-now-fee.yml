@@ -2,7 +2,8 @@ name: get-now-fee
 
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    false
+    # - cron: "0 */4 * * *"
 
 jobs:
   build:
